@@ -1,0 +1,21 @@
+<div [ngClass]="currentClasses">
+    <h3>{{message}}</h3>
+    <p>hello</p>
+</div>
+
+<div>
+    <p [ngStyle]="{'font-size': '12px'}">Hi</p>
+    <h4 [ngStyle]="{'color': 'red'}">Angular!</h4>
+</div>
+
+
+<div>
+    <p [style.fontSize]="'20px'">Hi</p>
+    <h4 [style.color]="'green'">Angular!</h4>
+</div>
+
+<div [ngClass]="{invisible: visability}">
+    <p >Hi</p>
+    <h4 >Angular!</h4>
+</div>
+<button type="button" (click)="toggle()">Toggle</button>

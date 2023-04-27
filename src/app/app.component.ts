@@ -1,74 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ChildComponent } from './child/child.component';
+import { UserComponent } from './user/user.component';
+import { compileDeclareInjectableFromMetadata } from '@angular/compiler';
      
-class Item{
-    purchase: string;
-    done: boolean;
-    price: number;
-     
-    constructor(purchase: string, price: number) {
-  
-        this.purchase = purchase;
-        this.price = price;
-        this.done = false;
-    }
-}
  
 @Component({
     selector: 'my-app',
-    template: `<div class="page-header">
-        <h1> Список покупок </h1>
-    </div>
-    <div class="panel">
-        <div class="form-inline">
-            <div class="form-group">
-                <div class="col-md-8">
-                    <input class="form-control" [(ngModel)]="text" placeholder = "Название" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <input type="number" class="form-control" [(ngModel)]="price" placeholder="Цена" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-8">
-                    <button class="btn btn-default" (click)="addItem(text, price)">Добавить</button>
-                </div>
-            </div>
-        </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Предмет</th>
-                    <th>Цена</th>
-                    <th>Куплено</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of items">
-                    <td>{{item.purchase}}</td>
-                    <td>{{item.price}}</td>
-                    <td><input type="checkbox" [(ngModel)]="item.done" /></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>`
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent { 
-    text: string = "";
-    price: number = 0;
-     
-    items: Item[] = 
-    [
-        { purchase: "Хлеб", done: false, price: 15.9 },
-        { purchase: "Масло", done: false, price: 60 },
-        { purchase: "Картофель", done: true, price: 22.6 },
-        { purchase: "Сыр", done: false, price:310 }
-    ];
-    addItem(text: string, price: number): void {
-         
-        if(text==null || text.trim()=="" || price==null)
-            return;
-        this.items.push(new Item(text, price));
+// name: string = "Ann";
+// age: number = 30;
+// clicks: number = 0;
+// onChanged(increased: any) {
+//   increased ? this.clicks++ : this.clicks--;
+// }
+name: string= "Mari";
+
+@ViewChild(UserComponent, {static: false})
+private counterComponent: UserComponent| undefined;
+// increment() { this.counterComponent?.increment();}
+// decrement() { this.counterComponent?.decrement();}
+
+increment() { this.counterComponent?.increment();  }
+decrement() { this.counterComponent?.decrement(); }
+
+@ViewChild("nameText", {static: false})
+nameParagraph: ElementRef|undefined;
+
+change(){
+    if(this.nameParagraph !== undefined) {
+        console.log(this.nameParagraph.nativeElement.textContent);
+        this.nameParagraph.nativeElement.textContent = "hello"
     }
+}
+
+condition: boolean = true;
+toggle() {
+    this.condition = !this.condition;
+}
+
+items = ["1", "2", "3"];
+count: number = 5;
+    
 }
