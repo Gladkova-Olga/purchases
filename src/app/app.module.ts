@@ -10,7 +10,9 @@ import { DataModule } from './data/data.module';
 import { BoldDirective } from './bold.directive';
 import { WhileDirective } from './while.directive';
 import { PurchasesComponent } from './purchases/purchases.component';
-
+import { FormComponent } from './form/form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,12 +21,15 @@ import { PurchasesComponent } from './purchases/purchases.component';
     BoldDirective,
     WhileDirective,
     PurchasesComponent,
+    FormComponent,
+    ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    DataModule
+    DataModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

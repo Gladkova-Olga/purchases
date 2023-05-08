@@ -1,4 +1,76 @@
-<p>{{counter}}</p>
+<!-- <p>{{counter}}</p>
 
 <ng-content></ng-content>
-<button type="button" (click)="change()">change</button>
+<button type="button" (click)="change()">change</button> -->
+
+<!-- <div>
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" name="name" [(ngModel)]="user.name" #name="ngModel" required />
+        <div [hidden]="name.valid || name.untouched" class="alert alert-danger">
+            name is requared
+        </div>
+    </div>
+
+ <div class="form-group">
+    <label>E-mail</label>
+    <input class="form-control" name="email" [(ngModel)]="user.email" #email="ngModel" 
+    required pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" />
+    <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+        incorrect e-mail
+    </div>
+</div> -->
+<!-- <div class="form-group">
+    <label>E-mail</label>
+    <input class="form-control" type="email" name="email" [(ngModel)]="user.email" #email="ngModel" 
+    required email />
+    <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+        incorrect e-mail
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Phone</label>
+    <input class="form-control" name="phone" [(ngModel)]="user.phone" #phone="ngModel" 
+    required pattern="[0-9]{10}"  />
+    <div [hidden]="phone.valid || phone.untouched" class="alert alert-danger">
+        incorrect phone
+    </div>
+</div>
+<div class="form-group">
+    <button type="button" class="btn btn-default" (click)="addUser()" 
+    [disabled]="name.invalid || email.invalid || phone.invalid">add user</button>
+</div> -->
+
+
+<!-- </div> -->
+
+
+<form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" name="name" ngModel required />
+    </div>
+
+<div class="form-group">
+    <label>E-mail</label>
+    <input class="form-control" type="email" name="email" ngModel required email />
+</div>
+
+<div class="form-group">
+    <label>Phone</label>
+    <input class="form-control" name="phone" ngModel required pattern="[0-9]{10}"  />
+</div>
+<div class="form-group">
+    <input type="submit" [disabled]="myForm.invalid" class="btn btn-default" value="Submit"/>
+    <!-- <button type="button" class="btn btn-default"   -->
+    <!-- [disabled]="myForm.invalid" (click)="submit(myForm)">add user</button>  -->
+ </div> 
+
+
+</form>
+
+<div>Name: {{myForm.value.name}}</div>
+<div>Email: {{myForm.value.email}}</div>
+<div>phone: {{myForm.value.phone}}</div>
+

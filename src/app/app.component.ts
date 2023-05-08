@@ -18,13 +18,13 @@ export class AppComponent {
 // }
 name: string= "Mari";
 
-@ViewChild(UserComponent, {static: false})
+// @ViewChild(UserComponent, {static: false})
 private counterComponent: UserComponent| undefined;
 // increment() { this.counterComponent?.increment();}
 // decrement() { this.counterComponent?.decrement();}
 
-increment() { this.counterComponent?.increment();  }
-decrement() { this.counterComponent?.decrement(); }
+// increment() { this.counterComponent?.increment();  }
+// decrement() { this.counterComponent?.decrement(); }
 
 @ViewChild("nameText", {static: false})
 nameParagraph: ElementRef|undefined;

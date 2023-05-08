@@ -1,4 +1,4 @@
-<div [ngClass]="currentClasses">
+<!-- <div [ngClass]="currentClasses">
     <h3>{{message}}</h3>
     <p>hello</p>
 </div>
@@ -18,4 +18,12 @@
     <p >Hi</p>
     <h4 >Angular!</h4>
 </div>
-<button type="button" (click)="toggle()">Toggle</button>
+<button type="button" (click)="toggle()">Toggle</button> -->
+
+<div>
+    <div>
+        <input [(ngModel)]="newItem" placeholder="model"/>
+        <button (click)="addItem(newItem)">Add</button>
+    </div>
+    <div *ngFor="let item of items">{{item}}</div>
+</div>
