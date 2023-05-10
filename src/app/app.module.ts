@@ -13,6 +13,8 @@ import { PurchasesComponent } from './purchases/purchases.component';
 import { FormComponent } from './form/form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientComponent } from './http-client/http-client.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PurchasesComponent,
     FormComponent,
     ReactiveFormComponent,
+    HttpClientComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     DataModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
