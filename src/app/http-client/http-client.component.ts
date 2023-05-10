@@ -14,16 +14,28 @@ export class HttpClientComponent implements OnInit {
   // ngOnInit(): void {
   //   this.httpService.getData().subscribe({next:(data: any) => this.user = new User(data.name, data.age)});
   // }
-  users: User[] = [];
-  error: any;
+  // users: User[] = [];
+  // error: any;
+num1: number = 0;
+num2: number = 0;
+sum: number | undefined;
+done: boolean = false;
+
+
 
   constructor(public httpService: HttpService) {}
    ngOnInit(): void {
-     this.httpService.getUsers().subscribe({next: (data:User[]) => this.users = data});
+    //  this.httpService.getUsers().subscribe({next: (data:User[]) => this.users = data});
    }
-
+   submit() {
+    this.httpService.getSum(this.num1, this.num2).subscribe({next: (data: any) => {
+      this.sum = data.result;
+      this.done = true;
+    }})
+  }
 }
 
-export class User{
-  constructor(public name: string, public age: number){}
-}
+
+// export class User{
+//   constructor(public name: string, public age: number){}
+// }
