@@ -4,7 +4,7 @@
 <!-- <app-form></app-form> -->
 <!-- <app-user></app-user> -->
 <!-- <app-reactive-form></app-reactive-form> -->
-<app-http-client></app-http-client>
+<!-- <app-http-client></app-http-client> -->
 
 
 <!-- <div class="page-header">
@@ -94,3 +94,13 @@
 <!-- <p *while="condition">First paragraph</p>
 <p *while="!condition">Second paragraph</p>
 <button type="button" (click)="toggle()">Toggle</button> -->
+<div>
+  <h1>Routing</h1>
+  <nav>
+    <a routerLink="" routerLinkActive="activa" [routerLinkActiveOptions]="{exact: true}">Main</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <a [routerLink]="['item', '5']">item 5</a>
+    <a [routerLink]="['item', '3']">item 3</a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

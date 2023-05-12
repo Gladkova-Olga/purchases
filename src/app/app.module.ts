@@ -15,6 +15,20 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientComponent } from './http-client/http-client.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RouterModule, Routes} from '@angular/router';
+import { ItemComponent } from './item/item.component';
+
+const appRoutes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'redirect', redirectTo: '/about', pathMatch: 'full'},
+  {path: 'item/:id', component: ItemComponent},
+  {path: '**', component: NotFoundComponent},
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +40,10 @@ import { HttpClientModule } from '@angular/common/http';
     FormComponent,
     ReactiveFormComponent,
     HttpClientComponent,
+    HomeComponent,
+    AboutComponent,
+    NotFoundComponent,
+    ItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +51,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     DataModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    RouterModule.forRoot(appRoutes) 
   ],
   providers: [],
   bootstrap: [AppComponent]
