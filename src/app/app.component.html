@@ -99,8 +99,8 @@
   <nav>
     <a routerLink="" routerLinkActive="activa" [routerLinkActiveOptions]="{exact: true}">Main</a>
     <a routerLink="/about" routerLinkActive="active">About</a>
-    <a [routerLink]="['item', '5']">item 5</a>
-    <a [routerLink]="['item', '3']">item 3</a>
+    <a [routerLink]="['item', '5']" [queryParams]="{'product': 'phone', 'price': '100'}">item 5</a>
+    <a [routerLink]="['item', '3']" [queryParams]="{'product': 'tablet', 'price': '300'}">item 3</a>
   </nav>
   <router-outlet></router-outlet>
 </div>
