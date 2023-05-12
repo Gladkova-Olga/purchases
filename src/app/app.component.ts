@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ChildComponent } from './child/child.component';
 import { UserComponent } from './user/user.component';
 import { compileDeclareInjectableFromMetadata } from '@angular/compiler';
+import { Router } from '@angular/router';
      
  
 @Component({
@@ -43,5 +44,24 @@ toggle() {
 
 items = ["1", "2", "3"];
 count: number = 5;
+//Routing
+item: Item = new Item(1, '', 0)
+constructor(private router: Router){}
+goHome() {
+    this.router.navigate(['']);
+}
+goToItem(myItem: Item) {
+    this.router.navigate(
+        ['/item', myItem.id],
+        {queryParams: {
+            'product': myItem.product,
+            'price': myItem.price
+        }}
+    )
+}
     
+}
+
+export class Item {
+    constructor(public id: number, public product: string, public price: number){}
 }
